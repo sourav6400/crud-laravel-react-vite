@@ -32,4 +32,15 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->save();
     }
+    
+    public function get_all_products(){
+
+        $products = Product::all();
+
+        // $products = DB::table('products')->get();
+
+        return response()->json([
+            'products' => $products
+        ], 200);
+    }
 }
